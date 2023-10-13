@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Calculator</title>
+    <style>
+      #calculator {
+        width: 200px;
+        height: 350px;
+        margin: 50px auto;
+        background-color: #eee;
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+
+      #display {
+        width: 90%;
+        height: 40px;
+        margin-bottom: 10px;
+        font-size: 20px;
+        text-align: right;
+        border: 1px solid #ccc;
+        padding: 5px;
+      }
+
+      button {
+        width: 40px;
+        height: 40px;
+        margin: 3px;
+        font-size: 20px;
+        background-color: #ccc;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #aaa;
+      }
+
+      button:active {
+        background-color: #555;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="calculator">
+      <div id="display"></div>
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="addToDisplay('/')">/</button>
+      <button onclick="addToDisplay('*')">*</button>
+      <button onclick="addToDisplay('-')">-</button>
+      <button onclick="addToDisplay('7')">7</button>
+      <button onclick="addToDisplay('8')">8</button>
+      <button onclick="addToDisplay('9')">9</button>
+      <button onclick="addToDisplay('+')">+</button>
+      <button onclick="addToDisplay('4')">4</button>
+      <button onclick="addToDisplay('5')">5</button>
+      <button onclick="addToDisplay('6')">6</button>
+      <button onclick="addToDisplay('.')">.</button>
+      <button onclick="addToDisplay('1')">1</button>
+      <button onclick="addToDisplay('2')">2</button>
+      <button onclick="addToDisplay('3')">3</button>
+      <button onclick="addToDisplay('0')">0</button>
+      <button onclick="calculate()">=</button>
+    </div>
+    <script>
+      const display = document.getElementById('display');
+
+      function addToDisplay(value) {
+        display.innerHTML += value;
+      }
+
+      function clearDisplay() {
+        display.innerHTML = '';
+      }
+
+      function calculate() {
+        try {
+          const result = eval(display.innerHTML);
+          display.innerHTML = result;
+        } catch (error) {
+          display.innerHTML = 'Error';
+        }
+      }
+    </script>
+  </body>
+</html>
